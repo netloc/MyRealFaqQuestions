@@ -1,0 +1,24 @@
+﻿@model IEnumerable<QuestionsAboutMe.Models.FAQ>
+
+@{
+    ViewBag.Title = "View All FAQ";
+}
+@Scripts.Render("~/bundles/jquery")
+
+<script src="~/Javascript/FaqTable.js"></script>
+<link href="~/Content/FAQTable.css" rel="stylesheet" />
+
+<script type="text/javascript">
+
+    myArray = [];
+
+    @foreach (var d in Model)
+    {
+        @:myArray.push("@d.Question", "@d.Answer");
+    }
+</script>
+<br />
+<div id="divFAQList">
+
+</div>
+<script type="text/javascript">PopulateAllFaq();</script>

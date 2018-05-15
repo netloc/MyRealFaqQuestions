@@ -1,0 +1,27 @@
+﻿@model IEnumerable<QuestionsAboutMe.Models.FAQ>
+
+<script src="~/Javascript/FaqTable.js"></script>
+<link href="~/Content/FAQTable.css" rel="stylesheet" />
+
+<script type="text/javascript">
+
+    myArray = [];
+
+    @foreach (var d in Model)
+    {
+        @:myArray.push("@d.Question", "@d.Answer");
+    }
+
+</script>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1 onclick="ReadMyFAQ();">Search</h1>
+    <input id="txtFaqSearch" type="text" name="fname" oninput="DoFaqLookup(this.value)"><br>
+    <div id="divFAQList">
+
+    </div>
+</div>
